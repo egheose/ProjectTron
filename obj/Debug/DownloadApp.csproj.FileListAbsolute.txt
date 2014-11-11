@@ -1,0 +1,14 @@
+C:\Users\Samuel\Documents\Visual Studio 2012\Projects\DXApplication1\DownloadApp\bin\DownloadApp.dll
+C:\Users\Samuel\Documents\Visual Studio 2012\Projects\DXApplication1\DownloadApp\bin\DownloadApp.pdb
+C:\Users\Samuel\Documents\Visual Studio 2012\Projects\DXApplication1\DownloadApp\obj\Debug\DownloadApp.dll.licenses
+C:\Users\Samuel\Documents\Visual Studio 2012\Projects\DXApplication1\DownloadApp\obj\Debug\DownloadApp.dll
+C:\Users\Samuel\Documents\Visual Studio 2012\Projects\DXApplication1\DownloadApp\obj\Debug\DownloadApp.pdb
+C:\Users\Samuel\Documents\Visual Studio 2012\Projects\DXApplication1\DownloadApp\bin\Ionic.Zip.dll
+C:\Users\samuel.obodeh\Dropbox\DD\DownloadApp\obj\Debug\DownloadApp.csprojResolveAssemblyReference.cache
+C:\Users\samuel.obodeh\Dropbox\DD\DownloadApp\obj\Debug\DownloadApp.dll.licenses
+C:\Users\samuel.obodeh\Dropbox\DD\DownloadApp\obj\Debug\DownloadApp.dll
+C:\Users\samuel.obodeh\Dropbox\DD\DownloadApp\obj\Debug\DownloadApp.pdb
+C:\Users\samuel.obodeh\Dropbox\DD\DownloadApp\bin\DownloadApp.dll
+C:\Users\samuel.obodeh\Dropbox\DD\DownloadApp\bin\DownloadApp.pdb
+C:\Users\samuel.obodeh\Dropbox\DD\DownloadApp\bin\Download.cs
+C:\Users\samuel.obodeh\Dropbox\DD\DownloadApp\bin\Scheduler.cs
