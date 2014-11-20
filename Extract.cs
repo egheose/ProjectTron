@@ -13,55 +13,6 @@ namespace DownloadApp
     class Extract : Download
     {
         Connect cn = new Connect();
-        public void ExtractFile()
-        {
-            string zipToUnpack = @"C:\DEBUG\" + year + "-" + month + "-" + day + ".zip";
-            string unpackDirectory = @"C:\DEBUG\" + year + "-" + month + "-" + day;//Extracted Files";
-            using (MD5 md5Hash = MD5.Create())
-            {
-                Password = GetMd5Hash(md5Hash, year + "l4ssra" + month + "lasrr4" + day);
-            }
-            try
-            {
-                using (ZipFile zip = ZipFile.Read(zipToUnpack))
-                {
-                    //Loops throgh zipfile and extrats & decrypt all contents
-                    foreach (ZipEntry e in zip)
-                    {
-                        try
-                        {
-                            e.ExtractWithPassword(unpackDirectory, Password);
-                        }
-                        catch (ZipException ex)
-                        {
-                            //Log exception
-                            string err = ex.Message;
-                            err = Regex.Replace(err, "'@][+", " ");
-                            //Log Exception
-                            cn.query = "insert into Utilities.dbo.Log values('" + zipToUnpack + "','Error','" + err + "','" + DateTime.Now.ToString() + "')";
-                            cn.read(); cn.run2();
-                            cn.conn.Close();
-                            return;
-                        }
-                    }
-                }
-            }
-            catch(Exception Filex)
-            {
-                string err = Filex.Message;
-                err = Regex.Replace(err, "'@][+", " ");
-                //Log Exception
-                cn.query = "insert into Utilities.dbo.Log values('" + zipToUnpack + "','Error','" + err + "','" + DateTime.Now.ToString() + "')";
-                cn.read(); cn.run2();
-                cn.conn.Close();
-            }
-            finally
-            {
-                DeleteZip(downloadPath);
-                Environment.Exit(0);
-            }
-        }
-
 
         public void ExtractFile(string file)
         {
@@ -89,16 +40,16 @@ namespace DownloadApp
             catch (Exception Filex)
             {
                 string err = Filex.Message;
-                err = Regex.Replace(err, "'@][+", " ");
-                //Log Exception
-                cn.query = "insert into Utilities.dbo.Log values('" + zipToUnpack + "','Error','" + err + "','" + DateTime.Now.ToString() + "')";
+                err = Regex.Replace(err, "'+:", " ");
+
+                cn.query = "insert into Utilities.dbo.Log values('" + filename + "','Error','" + "Problem With Extraction" + "','" + DateTime.Now.ToString() + "')";
                 cn.read(); cn.run2();
                 cn.conn.Close();
             }
             finally
             {
                 DeleteZip(downloadPath);
-                Environment.Exit(0);
+                //Environment.Exit(0);
             }
         }
     }

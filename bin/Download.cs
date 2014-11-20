@@ -20,8 +20,8 @@ namespace DownloadApp
        public static string filename;
        public static string[] e_dt;
        public static string[] s_dt;
-       public static int[] sd = new int[3] { 0, 0, 0 }; int cnt1, cnt2 = 0;
-       public static int[] ed = new int[3] { 0, 0, 0 };
+       public int[] sd = new int[3] { 0, 0, 0 }; int cnt1, cnt2 = 0;
+       public int[] ed = new int[3] { 0, 0, 0 };
 
 
        public Download()
@@ -37,19 +37,11 @@ namespace DownloadApp
            for (DateTime dateTime = st; dateTime <= en; dateTime += TimeSpan.FromDays(interval))
            {
                filename = Regex.Replace(dateTime.ToString("yyyy-MM-dd"), "/", "-");
-               downloadPath = @"C:\DEBUG\" + filename + ".zip";              
+               downloadPath = @"C:\DEBUG\" + filename + ".zip";
                DownLoadFileInBackground("http://registration.lagosresidents.gov.ng/data/C615C710E503E0F5702F6EE8DD79F6EF/" + filename);
-              
-                   if (dateTime >= en)
-                   {
-                       Environment.Exit(0);
-                   } 
-           }
-
-           for (DateTime dateTime = st; dateTime <= en; dateTime += TimeSpan.FromDays(interval))
-           {
                Extract exFile = new Extract();
                exFile.ExtractFile(dateTime.ToString("yyyy-MM-dd"));
+              
            }
            
            
@@ -61,7 +53,6 @@ namespace DownloadApp
        }
         public static string GetMd5Hash(MD5 md5Hash, string input)
         {
-
             // Convert the input string to a byte array and compute the hash.
             byte[] data = md5Hash.ComputeHash(Encoding.UTF8.GetBytes(input));
 
@@ -80,9 +71,9 @@ namespace DownloadApp
             return sBuilder.ToString();
         }
 
-       public void GetCurrentDate()
+       public void GetDateRange(string from, string to)
         {
-            s_dt = Regex.Split("2014,10,1", ",");
+            s_dt = Regex.Split(from, "-");
             foreach (string val in s_dt)
             {
                 sd[cnt1] = Int32.Parse(val);
@@ -90,7 +81,7 @@ namespace DownloadApp
             }
 
 
-            e_dt = Regex.Split("2014,10,31", ",");
+            e_dt = Regex.Split(to, "-");
             foreach (string value in e_dt)
             {
                 ed[cnt2] = Int32.Parse(value);
@@ -103,17 +94,35 @@ namespace DownloadApp
        // Sample call : DownLoadFileInBackground (URL);
        public void DownLoadFileInBackground(string address)
        {
-           WebClient client = new WebClient();
+           try
+           {
+               WebClient client = new WebClient();
                Uri uri = new Uri(address);
-               client.DownloadFileCompleted += new AsyncCompletedEventHandler(DownloadFileCallback);
-               client.DownloadFileAsync(uri, downloadPath);
-               ma.WaitOne();
+               client.DownloadFile(uri, downloadPath);
+               //client.DownloadFileCompleted += new AsyncCompletedEventHandler(DownloadFileCallback);
+
+
+               //Log Failure
+               query = "insert into Utilities.dbo.Log values('" + filename + "','Success'," + null + ",'" + DateTime.Now.ToString() + "')";
+               read(); run2();
+               conn.Close();
+               return;
+           }
+           catch (Exception e)
+           {
+               string err = e.Message;
+               err = Regex.Replace(err, @"\'+", " ");
+               //Log Failure
+               query = "insert into Utilities.dbo.Log values('" + filename + "','Failed','" + err + "','" + DateTime.Now.ToString() + "')";
+               read(); run2();
+               conn.Close();
+               return;
+           }
        }
 
        static int count, cnt = 0;
        private void DownloadFileCallback(object sender, AsyncCompletedEventArgs e)
        {
-           ma.Set();
            if (e.Error != null)
            {
                count++;
@@ -126,9 +135,6 @@ namespace DownloadApp
                    read(); run2();
                    conn.Close();
                }
-               //Retry Download
-               //DownLoadFileInBackground("http://registration.lagosresidents.gov.ng/data/C615C710E503E0F5702F6EE8DD79F6EF/" + year + "-" + month + "-" + day);
-
            }
            else if (!e.Cancelled)
            {

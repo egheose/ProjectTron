@@ -3,7 +3,6 @@ html, body {
 	padding: 0;
 }
 
-
 /* Header */
 .headerPane 
 {
@@ -47,6 +46,86 @@ html, body {
     margin-top: 11px;
 }
 
+/*Dashboard*/
+.top-wrapper {float:left; width:100%; background:#23415f; min-height:100%;}
+.dashboard-heading {
+        float: right;
+        width: 100%;
+        text-align: center;
+        padding: 27px 0 20px 0;
+        color:#ffffff;
+        font-family: 'MyriadProSemibold';
+        font-weight: normal;
+}
+    .dashboard-heading h1 {
+        font-size: 65px;
+        color: #fff;
+        font-family: 'MyriadProSemibold';
+        font-weight:bold;
+    }
+ .dashboard-heading .report 
+    {
+        margin: 0 40px 0 7px;
+        background: url('images/release-order-icon.png') no-repeat center 5px;
+        float: left;
+        min-height: 170px;
+        width: 202px;
+        margin-left: 81px;
+        position: relative;
+        left: 149px;
+    }
+ .dashboard-heading .report1 
+    {
+        margin: 0 70px 0 7px;
+        background: url('images/releaseable-order-icon.png') no-repeat center 20px;
+        float: left;
+        min-height: 170px;
+        width: 202px;
+        margin-left: 81px;
+        position: relative;
+        left: 249px;
+    }
+ .dashboard-heading .report2 
+    {
+        margin: 0 0px 0 7px;
+        background: url('images/reported-order-icon.png') no-repeat center 20px;
+        float: left;
+        min-height: 170px;
+        width: 202px;
+        margin-left: 81px;
+        position: relative;
+        left: 309px;
+    }
+ .dashboard-heading .report3 
+    {
+        margin: 0 0px 0 7px;
+        background: url('images/unrelease-order-icon.png') no-repeat left 20px;
+        float: left;
+        min-height: 170px;
+        width: 202px;
+        margin-left: 81px;
+        position: relative;
+        left: 399px;
+    }
+.order-box-text 
+    {
+        float: left;
+        width: 180px;
+        text-align: center;
+        margin: 14px 0 0 0;
+}
+.order-box-text span {
+        font-size: 15px;
+        color: #fff;
+        font-family: 'MyriadProSemibold';
+        line-height: 90px;
+}
+.order-box-text h3 {
+    font-size: 15px;
+    color: #fff;
+    font-family: 'MyriadProSemibold';
+    font-weight: normal;
+}
 
 /* Footer */
 .footerPane 
@@ -92,7 +171,10 @@ html, body {
     margin-bottom: 8px;
 }
 
-
+.anchor 
+{
+    color: #B38989;
+}
 /* iOS */
 .dxsplVSeparator_iOS,
 .dxsplHSeparator_iOS
@@ -115,6 +197,14 @@ html, body {
     font-size: 26px;
     line-height: 1em;
     font-weight: bold;
+}
+.align-text {
+    float: left;
+}
+.align-button {
+    float: left;
+    position:relative;
+    left:30px;
 }
 .dxsplControl_iOS .headerTop,
 .dxsplControl_iOS .content
@@ -747,7 +837,7 @@ html, body {
 .dxsplControl_Moderno .headerPane,
 .dxsplControl_Moderno .footerMenu li
 {
-    background-color: White;
+    background-color: #23415f;
     color: Black;
 }
 .dxsplControl_Moderno .accountHeader h2
@@ -781,4 +871,51 @@ html, body {
 .dxsplControl_Moderno .footerPane 
 {
 	background: #EDEDED;
+}
+
+.rsearch 
+{
+    width:50%;
+    margin: 120px 40px 0 7px;
+        /*background: url('images/release-order-icon.png') no-repeat center 5px;*/
+        float: left;
+        min-height: 170px;
+        width: 202px;
+        margin-left: 81px;
+        position: relative;
+        left: 509px;
+        text-align:center;
+}
+.search 
+{
+    width:50%;
+    margin: 120px 40px 0 7px;
+        /*background: url('images/release-order-icon.png') no-repeat center 5px;*/
+        float: left;
+        min-height: 170px;
+        width: 202px;
+        margin-left: 81px;
+        position: relative;
+        left: 359px;
+        text-align:center;
+}
+.search a
+{
+    width:100%;
+    margin: 10px 0 0 7px;
+        /*background: url('images/release-order-icon.png') no-repeat center 5px;*/
+        float: left;
+        min-height: 30px;
+        width: 202px;
+        margin-left: 150px;
+        position: relative;
+        left: 30px;
+        text-align:center;
+}
+.search nav
+{   
+        position: relative;
+        margin: 20px 0 0 7px;
+        left: 135px;
+        text-align:center;
 }

@@ -97,7 +97,9 @@
       <DependentUpon>NWind.mdf</DependentUpon>
     </Content>
     <Content Include="App_Data\SideMenu.xml" />
-    <Content Include="App_Data\TopMenu.xml" />
+    <Content Include="App_Data\TopMenu.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Content\Images\AquaHeader.jpg" />
     <Content Include="Content\Images\BlackGlassHeader.jpg" />
     <Content Include="Content\Images\GlassHeader.jpg" />
@@ -106,6 +108,8 @@
     <Content Include="Content\Site.css" />
     <Content Include="Default.aspx" />
     <Content Include="download.aspx" />
+    <Content Include="error.aspx" />
+    <Content Include="fsearch.aspx" />
     <Content Include="Global.asax" />
   </ItemGroup>
   <ItemGroup>
@@ -121,8 +125,12 @@
     <Content Include="Account\Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Web.config" />
+    <Content Include="rsearch.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <None Include="Lasrra.pubxml" />
+    <None Include="Properties\PublishProfiles\lasrra.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -184,7 +192,21 @@
     <Compile Include="Download.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
+    <Compile Include="error.aspx.cs">
+      <DependentUpon>error.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="error.aspx.designer.cs">
+      <DependentUpon>error.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Extract.cs" />
+    <Compile Include="fsearch.aspx.cs">
+      <DependentUpon>fsearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="fsearch.aspx.designer.cs">
+      <DependentUpon>fsearch.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -209,6 +231,13 @@
     </Compile>
     <Compile Include="Root.master.designer.cs">
       <DependentUpon>Root.master</DependentUpon>
+    </Compile>
+    <Compile Include="rsearch.aspx.cs">
+      <DependentUpon>rsearch.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="rsearch.aspx.designer.cs">
+      <DependentUpon>rsearch.aspx</DependentUpon>
     </Compile>
     <Compile Include="Scheduler.cs">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>

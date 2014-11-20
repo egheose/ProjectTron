@@ -4,6 +4,7 @@ using System.Web;
 using System.Data;
 using System.Configuration;
 using System.Data.SqlClient;
+using System.Web.Configuration;
 
 /// <summary>
 /// Summary description for Connect
@@ -19,7 +20,7 @@ public class Connect
     public string db = "";
 	public Connect()
 	{
-        conn = new SqlConnection("Data Source=localhost;Initial Catalog=Utilities;Integrated Security=True");
+        conn = new SqlConnection(WebConfigurationManager.ConnectionStrings["local"].ConnectionString);//("Data Source=localhost;Initial Catalog=Utilities;Integrated Security=True");
         ds = new DataSet();
         da = new SqlDataAdapter();
 	}

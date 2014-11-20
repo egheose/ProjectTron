@@ -33,8 +33,8 @@ namespace DownloadApp
         Download dl = new Download();
         
         //2.  Extract File
-        Extract exFile = new Extract();
-        exFile.ExtractFile();
+        //Extract exFile = new Extract();
+        //exFile.ExtractFile();
 
 
         // 2. If tick for the first time, reset next run to every 24 hours
