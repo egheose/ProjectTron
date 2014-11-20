@@ -889,14 +889,14 @@ html, body {
 .search 
 {
     width:50%;
-    margin: 120px 40px 0 7px;
+    margin: 10px 40px 0 7px;
         /*background: url('images/release-order-icon.png') no-repeat center 5px;*/
         float: left;
         min-height: 170px;
         width: 202px;
         margin-left: 81px;
         position: relative;
-        left: 359px;
+        left: 399px;
         text-align:center;
 }
 .search a
@@ -919,3 +919,19 @@ html, body {
         left: 135px;
         text-align:center;
 }
+
+.search-heading {
+        float: right;
+        width: 100%;
+        text-align: center;
+        padding: 0 0 0 0;
+        color:#ffffff;
+        font-family: 'MyriadProSemibold';
+        font-weight: normal;
+}
+    .search-heading h2 {
+        font-size: 65px;
+        color: #23415f;
+        font-family: 'MyriadProSemibold';
+        font-weight:bold;
+    }
