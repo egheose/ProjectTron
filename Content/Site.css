@@ -925,13 +925,23 @@ html, body {
         width: 100%;
         text-align: center;
         padding: 0 0 0 0;
-        color:#ffffff;
+        color:#23415f;
         font-family: 'MyriadProSemibold';
         font-weight: normal;
 }
-    .search-heading h2 {
+.search-heading h2 
+{
         font-size: 65px;
         color: #23415f;
         font-family: 'MyriadProSemibold';
         font-weight:bold;
-    }
+}
+.search-result {
+        float: right;
+        width: 100%;
+        text-align: center;
+        padding: 0 0 0 0;
+        color:#23415f;
+        font-family: 'MyriadProSemibold';
+        font-weight: normal;
+}
