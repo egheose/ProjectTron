@@ -74,24 +74,31 @@ namespace DownloadApp
             if (conn.State == ConnectionState.Open)
                 conn.Close();
 
-
-            for (int i = 0; i < MyGlobals.lstSQLConStr.Count; i++)
+            try
             {
-                using (sqlCon = new SqlConnection(MyGlobals.lstSQLConStr[i]))
+                for (int i = 0; i < MyGlobals.lstSQLConStr.Count; i++)
                 {
-                    sqlCon.Open();
-
-                    using (sqlCmd = new SqlCommand(query, sqlCon))
+                    using (sqlCon = new SqlConnection(MyGlobals.lstSQLConStr[i]))
                     {
-                        sqlCmd.CommandType = CommandType.Text;
+                        sqlCon.Open();
 
-                        using (SqlDataReader dataReader = sqlCmd.ExecuteReader())
+                        using (sqlCmd = new SqlCommand(query, sqlCon))
                         {
-                            dtResult.Load(dataReader);
+                            sqlCmd.CommandType = CommandType.Text;
+
+                            using (SqlDataReader dataReader = sqlCmd.ExecuteReader())
+                            {
+                                dtResult.Load(dataReader);
+                            }
                         }
                     }
-                }
-            }//End For loop
+                }//End For loop
+            }
+            catch (SqlException ex)
+            {
+                MyGlobals.err_Message = ex.Message.ToString();//MyGlobals Class stores global variables and is located in the Root.master.cs file
+                HttpContext.Current.Response.Redirect("error.aspx");
+            }
             return dtResult;
         }//End QueryMultipleDBServers
     }

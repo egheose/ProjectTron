@@ -123,3 +123,4 @@ C:\Users\samuel.obodeh\Dropbox\DD\DownloadApp\bin\de\DevExpress.XtraScheduler.v1
 C:\Users\samuel.obodeh\Dropbox\DD\DownloadApp\bin\es\DevExpress.XtraScheduler.v13.2.Core.resources.dll
 C:\Users\samuel.obodeh\Dropbox\DD\DownloadApp\bin\ja\DevExpress.XtraScheduler.v13.2.Core.resources.dll
 C:\Users\samuel.obodeh\Dropbox\DD\DownloadApp\bin\ru\DevExpress.XtraScheduler.v13.2.Core.resources.dll
+C:\Users\samuel.obodeh\Dropbox\DD\DownloadApp\obj\Release\DownloadApp.csprojResolveAssemblyReference.cache

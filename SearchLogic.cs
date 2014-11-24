@@ -13,21 +13,43 @@ namespace DownloadApp
         }
 
         //Method to perform database(record) search
-        public void recordSearch(string query)
+        public void recordSearch(string value)
         {
-            MyGlobals.datatableGlobal.Clear();//Clears global datatable
+            try
+            {
+                MyGlobals.datatableGlobal.Clear();//Clears global datatable
+                query = "select * from XXX where ID='" + value + "'";
+                //Run query against all database servers and save result in Global datatable
+                MyGlobals.datatableGlobal = QueryMultiplyDBServers();
+                conn.Close();
+            }
+            catch (Exception ex)
+            {
+                MyGlobals.err_Message = "RS - " + ex.Message.ToString();//MyGlobals Class stores global variables and is located in the Root.master.cs file
+                HttpContext.Current.Response.Redirect("error.aspx");
+                return;
+            }
         }
 
         //Method to perform database(Bulk) search
         public void recordSearch(string[] BulkQuery)
         {
-            MyGlobals.datatableGlobal.Clear();//Clears global datatable
-            foreach (string value in BulkQuery)
+            try
             {
-                query = "select * from XXX where ID='" + value + "'";
-                //Run query against all database servers and save result in Global datatable
-                MyGlobals.datatableGlobal = QueryMultiplyDBServers();
-                conn.Close();
+                MyGlobals.datatableGlobal.Clear();//Clears global datatable
+                foreach (string value in BulkQuery)
+                {
+                    query = "select * from XXX where ID='" + value + "'";
+                    //Run query against all database servers and save result in Global datatable
+                    MyGlobals.datatableGlobal = QueryMultiplyDBServers();
+                    conn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MyGlobals.err_Message = "BRS - " +ex.Message.ToString();//MyGlobals Class stores global variables and is located in the Root.master.cs file
+                HttpContext.Current.Response.Redirect("error.aspx");
+                return;
             }
         }
 
