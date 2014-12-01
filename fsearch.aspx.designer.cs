@@ -13,13 +13,13 @@ namespace DownloadApp {
     public partial class fsearch {
         
         /// <summary>
-        /// tbConfirmPassword control.
+        /// tbSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxTextBox tbConfirmPassword;
+        protected global::DevExpress.Web.ASPxEditors.ASPxTextBox tbSearch;
         
         /// <summary>
         /// advSearch control.
@@ -38,5 +38,23 @@ namespace DownloadApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxEditors.ASPxButton btnRsearch;
+        
+        /// <summary>
+        /// resultGrid control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView resultGrid;
+        
+        /// <summary>
+        /// lblNotFound control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNotFound;
     }
 }

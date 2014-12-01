@@ -130,12 +130,13 @@ html, body {
 /* Footer */
 .footerPane 
 {
-    background-color: #EDEDED;
-    height:100%;
 }
 .footerMenu {
     float: right;
     padding-top: 7px;
+    display: block;
+    position: absolute;
+    bottom: 10px;
 }
 .copyright 
 {
@@ -889,7 +890,7 @@ html, body {
 .search 
 {
     width:50%;
-    margin: 10px 40px 0 7px;
+    margin: 10px 40px -27px 7px;
         /*background: url('images/release-order-icon.png') no-repeat center 5px;*/
         float: left;
         min-height: 170px;
@@ -919,6 +920,14 @@ html, body {
         left: 135px;
         text-align:center;
 }
+.search-table
+{
+        position:inherit;
+        margin: 5px 0 0 7px;
+        left: 57px;
+        text-align:center;
+        align-content:center;
+}
 
 .search-heading {
         float: right;
@@ -936,8 +945,8 @@ html, body {
         font-family: 'MyriadProSemibold';
         font-weight:bold;
 }
-.search-result {
-        float: right;
+.search-result table{
+        float: left;
         width: 100%;
         text-align: center;
         padding: 0 0 0 0;
@@ -945,3 +954,37 @@ html, body {
         font-family: 'MyriadProSemibold';
         font-weight: normal;
 }
+.search-result {
+        float: left;
+        width: 100%;
+        text-align: center;
+        padding: 0 0 0 0;
+        font-family: 'MyriadProSemibold';
+        min-height: inherit;
+}
+.content2 {
+    height: 100%;
+    width: 100%;
+    padding: 0px;
+    margin-right: 0px;
+    overflow: auto;
+}
+.ModalPopupBG
+{
+    background-color: #666699;
+    filter: alpha(opacity=50);
+    opacity: 0.7;
+}
+
+.AdvancedSearchPopup
+{
+    min-width:200px;
+    min-height:150px;
+    background:white;
+}
+::-webkit-input-placeholder { color: #808080; }         
+:focus::-webkit-input-placeholder { color: #d0d0d0;  transition: all 1s ease-in-out; }
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */ color: #808080;   opacity:  1; }
+::-moz-placeholder { /* Mozilla Firefox 19+ */   color:    #808080;   opacity:  1;}
+:focus::-moz-placeholder { color: #d0d0d0;  transition: all 1s ease-in-out; }
+:-ms-input-placeholder { /* Internet Explorer 10+ */ color: #808080; }

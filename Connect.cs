@@ -22,7 +22,7 @@ namespace DownloadApp
 
         public Connect()
         {
-            conn = new SqlConnection(WebConfigurationManager.ConnectionStrings["local"].ConnectionString);//("Data Source=localhost;Initial Catalog=Utilities;Integrated Security=True");
+            conn = new SqlConnection(WebConfigurationManager.ConnectionStrings["log"].ConnectionString);//("Data Source=localhost;Initial Catalog=Utilities;Integrated Security=True");
             ds = new DataSet();
             da = new SqlDataAdapter();
             dtResult = new DataTable();
@@ -71,6 +71,7 @@ namespace DownloadApp
 
         public DataTable QueryMultiplyDBServers()
         {
+            DataTable result = new DataTable();
             if (conn.State == ConnectionState.Open)
                 conn.Close();
 
@@ -88,7 +89,7 @@ namespace DownloadApp
 
                             using (SqlDataReader dataReader = sqlCmd.ExecuteReader())
                             {
-                                dtResult.Load(dataReader);
+                                result.Load(dataReader);
                             }
                         }
                     }
@@ -99,7 +100,7 @@ namespace DownloadApp
                 MyGlobals.err_Message = ex.Message.ToString();//MyGlobals Class stores global variables and is located in the Root.master.cs file
                 HttpContext.Current.Response.Redirect("error.aspx");
             }
-            return dtResult;
+            return result;
         }//End QueryMultipleDBServers
     }
 }

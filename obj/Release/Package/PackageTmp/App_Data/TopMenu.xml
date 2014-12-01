@@ -1,0 +1,7 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<items>
+  <item Text="Home" NavigateUrl="Default.aspx" />
+  <item Text="Backlog Downloads" NavigateUrl="download.aspx"  />
+  <item Text="Record Search" NavigateUrl="rsearch.aspx"  />
+  <item Text="File Search" NavigateUrl="fsearch.aspx"  />
+</items>

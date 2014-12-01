@@ -7,11 +7,11 @@
   <parameter name="Add write permission to App_Data Folder" description="Add write permission to App_Data folder" value="Default Web Site/Lasrra/App_Data" tags="Hidden">
     <parameterEntry kind="ProviderPath" scope="setAcl" match="^C:\\Users\\samuel\.obodeh\\Dropbox\\DD\\DownloadApp\\obj\\Release\\Package\\PackageTmp\\App_Data$" />
   </parameter>
-  <parameter name="ApplicationServices-Web.config Connection String" description="" value="Data Source=localhost;Initial Catalog=Utilities;Integrated Security=True" tags="">
+  <parameter name="ApplicationServices-Web.config Connection String" description="" value="Data Source=172.16.2.60;Initial Catalog=Utilities;Persist Security Info=True;User ID=samuel;Password=Codename47!" tags="">
     <parameterEntry kind="XmlFile" scope="C:\\Users\\samuel\.obodeh\\Dropbox\\DD\\DownloadApp\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='ApplicationServices']/@connectionString" />
   </parameter>
-  <parameter name="local-Web.config Connection String" description="" value="Data Source=localhost;Initial Catalog=Utilities;Integrated Security=True" tags="">
-    <parameterEntry kind="XmlFile" scope="C:\\Users\\samuel\.obodeh\\Dropbox\\DD\\DownloadApp\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='local']/@connectionString" />
+  <parameter name="log-Web.config Connection String" description="" value="Data Source=172.16.2.60;Database=Utilities;User Id=samuel;Password=Codename47!;" tags="">
+    <parameterEntry kind="XmlFile" scope="C:\\Users\\samuel\.obodeh\\Dropbox\\DD\\DownloadApp\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='log']/@connectionString" />
   </parameter>
   <parameter name="NWindConnectionString-Web.config Connection String" description="" value="data source=(localdb)\v11.0;attachdbfilename=|DataDirectory|\NWind.mdf;integrated security=True;connect timeout=120" tags="">
     <parameterEntry kind="XmlFile" scope="C:\\Users\\samuel\.obodeh\\Dropbox\\DD\\DownloadApp\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='NWindConnectionString']/@connectionString" />

@@ -15,12 +15,6 @@ namespace DownloadApp {
             ASPxSplitter1.GetPaneByName("Header").Size = ASPxWebControl.GlobalTheme == "Moderno" ? 95 : 83;
             ASPxSplitter1.GetPaneByName("Header").MinSize = ASPxWebControl.GlobalTheme == "Moderno" ? 95 : 83;
             ASPxLabel2.Text = DateTime.Now.Year + Server.HtmlDecode(" &copy; Copyright by [Lasrra & Dimension Data]");
-
-            //Add All database connection string here
-            MyGlobals.lstSQLConStr.Add(@"Server=172.16.2.55;Database=myDataBase;User Id=samuel;Password=Codename47;");
-            MyGlobals.lstSQLConStr.Add(@"Server=172.16.2.60;Database=myDataBase;User Id=samuel;Password=Codename47;");
-            //MyGlobals.lstSQLConStr.Add(@"Server=myServerAddress3;Database=myDataBase;User Id=myUsername;Password=myPassword;");
-            //MyGlobals.lstSQLConStr.Add(@"Server=myServerAddress4;Database=myDataBase;User Id=myUsername;Password=myPassword;");
         }
     }
         public static class MyGlobals

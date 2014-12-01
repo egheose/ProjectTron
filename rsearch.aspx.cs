@@ -13,21 +13,94 @@ namespace DownloadApp
             SearchLogic sl=new SearchLogic();
         protected void Page_Load(object sender, EventArgs e)
         {
+            MyGlobals.lstSQLConStr.Clear();
+            lblNotFound.Visible = false;
+            //Add All database connection string here
+            //MyGlobals.lstSQLConStr.Add(@"Server=172.16.2.54;Database=myDataBase;User Id=samuel;Password=Codename47;");//RLSR-CRPDB-01
+            MyGlobals.lstSQLConStr.Add(@"Server=172.16.2.55;Database=crdb;User Id=samuel;Password=Codename47!;");//RLSR-CRPDB-02
+            //MyGlobals.lstSQLConStr.Add(@"Server=172.16.2.56;Database=hubdb;User Id=samuel;Password=Codename47;");//RLSR-HUB-01
+            //MyGlobals.lstSQLConStr.Add(@"Server=172.16.2.57;Database=hubdb;User Id=samuel;Password=Codename47;");//RLSR-HUB-02
+            //MyGlobals.lstSQLConStr.Add(@"Server=172.16.2.58;Database=hubdb;User Id=samuel;Password=Codename47;");//RLSR-HUB-03
+            //MyGlobals.lstSQLConStr.Add(@"Server=172.16.2.59;Database=hubdb;User Id=samuel;Password=Codename47;");//RLSR-HUB-04
+            MyGlobals.lstSQLConStr.Add(@"Server=172.16.2.60;Database=hubdb;User Id=samuel;Password=Codename47!;");//RLSR-HUB-05
         }
 
         protected void btnRsearch_Click(object sender, EventArgs e)
         {
-            if (tbSearch.Text.Contains(',') || tbSearch.Text.Length > 15)
+            lblNotFound.Visible = false;
+            MyGlobals.datatableGlobal.Clear();//Clears global datatable
+
+            if (!isSearchFieldEmpty())
             {
-                string[] query = Regex.Split(tbSearch.Text, ",");
-                sl.recordSearch(query);
                 resultGrid.DataSource = MyGlobals.datatableGlobal;
+                if (tbSearch.Text.Contains(',') || tbSearch.Text.Length > 15)
+                {
+                    string[] query = Regex.Split(tbSearch.Text, ",");
+                    sl.recordSearch(query);
+                    BindData();
+                    if (resultGrid.Rows.Count < 1)
+                    {
+                        lblNotFound.Text = "<br/><br/><br/><br/><br/><br/><br/><br/><br/>   No Record(s) Found.";
+                        lblNotFound.Visible = true; lblNotFound.ForeColor = System.Drawing.Color.Red;
+                    }
+                }
+                else
+                {
+                    sl.recordSearch(tbSearch.Text.Trim());
+                    BindData();
+                    if (resultGrid.Rows.Count < 1)
+                    {
+                        lblNotFound.Text = "<br/><br/><br/><br/><br/><br/><br/><br/><br/>   No Record(s) Found.";
+                        lblNotFound.Visible = true; lblNotFound.ForeColor = System.Drawing.Color.Red;
+                    }
+                }
+            }
+        }
+
+        private void BindData()
+        {
+            try
+            {
+
+                resultGrid.DataSource = MyGlobals.datatableGlobal;
+                resultGrid.DataBind();
+            }
+            catch (OutOfMemoryException)
+            {
+                lblNotFound.Text = "<br/><br/><br/><br/><br/><br/><br/><br/><br/>   Maximum Result Set Exceeded - Your search returned over 100,000 records and has maxed out memory, Please narrow your search and try again";
+                lblNotFound.Visible = true; lblNotFound.ForeColor = System.Drawing.Color.Red;
+            }
+        }
+        private bool isSearchFieldEmpty()
+        {
+            if (tbSearch.Text == "")
+            {
+                lblNotFound.Text = "<br/><br/><br/><br/><br/><br/><br/><br/><br/> <br/><br/>    (Search Field Cannot Be Empty) - No Record(s) Found";
+                lblNotFound.Visible = true; lblNotFound.ForeColor = System.Drawing.Color.Red;
+                return true;
             }
             else
             {
-                sl.recordSearch(tbSearch.Text.Trim());
-                resultGrid.DataSource = MyGlobals.datatableGlobal;
+                return false;
             }
+        }
+
+        protected void resultGrid_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            resultGrid.PageIndex = e.NewPageIndex;
+            BindData();
+        }
+
+        protected void lnkbtnAdvSearch_Click(object sender, EventArgs e)
+        {
+            SearchPanel.Visible = false;
+            advSearchPanel.Visible = true;
+        }
+
+        protected void linkBtnNormalSearch_Click(object sender, EventArgs e)
+        {
+            SearchPanel.Visible = true;
+            advSearchPanel.Visible = false;
         }
     }
 }
