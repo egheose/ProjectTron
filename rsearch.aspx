@@ -69,7 +69,7 @@
                     </asp:TableRow>
                     <asp:TableRow>
                         <asp:TableCell>
-                            <dx:ASPxTextBox ID="ASPxTextBox7" runat="server" Width="200px" NullText="CAR PLATE NUMBER"></dx:ASPxTextBox>
+                            <dx:ASPxTextBox ID="ASPxTextBox7" runat="server" Width="200px" NullText="DATE OF BIRTH"></dx:ASPxTextBox>
                         </asp:TableCell>
                         <asp:TableCell>
                             <dx:ASPxTextBox ID="ASPxTextBox8" runat="server" Width="200px" NullText="COMPANY"></dx:ASPxTextBox>

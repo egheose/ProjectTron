@@ -182,3 +182,4 @@ C:\Users\samuel.obodeh\Dropbox\DD\DownloadApp\bin\ko\System.Spatial.resources.dl
 C:\Users\samuel.obodeh\Dropbox\DD\DownloadApp\bin\ru\System.Spatial.resources.dll
 C:\Users\samuel.obodeh\Dropbox\DD\DownloadApp\bin\zh-Hans\System.Spatial.resources.dll
 C:\Users\samuel.obodeh\Dropbox\DD\DownloadApp\bin\zh-Hant\System.Spatial.resources.dll
+C:\Users\samuel.obodeh\Dropbox\DD\DownloadApp\obj\Release\DownloadApp.csprojResolveAssemblyReference.cache

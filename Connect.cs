@@ -77,7 +77,7 @@ namespace DownloadApp
 
             try
             {
-                for (int i = 0; i < MyGlobals.lstSQLConStr.Count; i++)
+                foreach(string val in MyGlobals.lstSQLConStr)
                 {
                     using (sqlCon = new SqlConnection(MyGlobals.lstSQLConStr[i]))
                     {

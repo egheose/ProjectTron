@@ -40,15 +40,17 @@ namespace DownloadApp
                 MyGlobals.datatableGlobal.Clear();//Clears global datatable
                 foreach (string value in BulkQuery)
                 {
-                    query = @"select ID,SURNAME,FIRSTNAME, MIDDLENAME,PRIMARY_PHONE_NO,OCCUPATION,DATE_BIRTH from Resident_info where ID LIKE '%" + value + "%'";
+                    query = @"select ID,SURNAME,FIRSTNAME, MIDDLENAME,PRIMARY_PHONE_NO,OCCUPATION,DATE_BIRTH from Resident_info where ID LIKE '%" + value.Trim() + "%'";
                     //Run query against all database servers and save result in Global datatable
-                    MyGlobals.datatableGlobal = QueryMultiplyDBServers();
-                }
+                    System.Data.DataTable dr = QueryMultiplyDBServers();
+                    MyGlobals.datatableGlobal.ImportRow(dr.Rows[0]);
                     conn.Close();
+                }
                     return;
             }
             catch (Exception ex)
             {
+                conn.Close();
                 MyGlobals.err_Message = "BRS - " +ex.Message.ToString();//MyGlobals Class stores global variables and is located in the Root.master.cs file
                 HttpContext.Current.Response.Redirect("error.aspx");
                 return;

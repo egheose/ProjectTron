@@ -33,12 +33,17 @@ namespace DownloadApp
             if (!isSearchFieldEmpty())
             {
                 resultGrid.DataSource = MyGlobals.datatableGlobal;
-                if (tbSearch.Text.Contains(',') || tbSearch.Text.Length > 15)
+                if (tbSearch.Text.Contains(','))
                 {
-                    string[] query = Regex.Split(tbSearch.Text, ",");
+                    string input = tbSearch.Text;
+                    if (input.EndsWith(","))
+                    {
+                        input = input.TrimEnd(',');
+                    }
+                    string[] query = Regex.Split(input, ",");
                     sl.recordSearch(query);
                     BindData();
-                    if (resultGrid.Rows.Count < 1)
+                    if (resultGrid.Rows.Count < 1 && MyGlobals.datatableGlobal.Rows.Count < 1)
                     {
                         lblNotFound.Text = "<br/><br/><br/><br/><br/><br/><br/><br/><br/>   No Record(s) Found.";
                         lblNotFound.Visible = true; lblNotFound.ForeColor = System.Drawing.Color.Red;
@@ -46,7 +51,12 @@ namespace DownloadApp
                 }
                 else
                 {
-                    sl.recordSearch(tbSearch.Text.Trim());
+                    string input = tbSearch.Text;
+                    if (input.EndsWith(","))
+                    {
+                        input = input.TrimEnd(',');
+                    }
+                    sl.recordSearch(input.Trim());
                     BindData();
                     if (resultGrid.Rows.Count < 1)
                     {
