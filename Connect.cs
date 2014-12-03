@@ -79,7 +79,7 @@ namespace DownloadApp
             {
                 foreach(string val in MyGlobals.lstSQLConStr)
                 {
-                    using (sqlCon = new SqlConnection(MyGlobals.lstSQLConStr[i]))
+                    using (sqlCon = new SqlConnection(val))
                     {
                         sqlCon.Open();
 
