@@ -33,7 +33,7 @@ namespace DownloadApp
             if (!isSearchFieldEmpty())
             {
                 resultGrid.DataSource = MyGlobals.datatableGlobal;
-                if (tbSearch.Text.Contains(',') || tbSearch.Text.Length > 15)
+                if (tbSearch.Text.Contains(','))
                 {
                     string[] query = Regex.Split(tbSearch.Text, ",");
                     sl.FileSearch(query);

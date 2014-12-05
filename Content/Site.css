@@ -72,7 +72,7 @@ html, body {
         width: 202px;
         margin-left: 81px;
         position: relative;
-        left: 149px;
+        left: 150px;
     }
  .dashboard-heading .report1 
     {
@@ -83,7 +83,7 @@ html, body {
         width: 202px;
         margin-left: 81px;
         position: relative;
-        left: 249px;
+        left: 300px;
     }
  .dashboard-heading .report2 
     {
@@ -94,7 +94,7 @@ html, body {
         width: 202px;
         margin-left: 81px;
         position: relative;
-        left: 309px;
+        left: 400px;
     }
  .dashboard-heading .report3 
     {
@@ -917,8 +917,9 @@ html, body {
 {   
         position: relative;
         margin: 20px 0 0 7px;
-        left: 135px;
+        left: 110px;
         text-align:center;
+        font-weight:bold;
 }
 .search-table
 {
@@ -969,22 +970,11 @@ html, body {
     margin-right: 0px;
     overflow: auto;
 }
-.ModalPopupBG
-{
-    background-color: #666699;
-    filter: alpha(opacity=50);
-    opacity: 0.7;
+.pg404 {
+    background: url('images/404.jpg') no-repeat center #0f6596;
+    height: 100%; width: 100%; padding: 0px; margin-right: 0px;
 }
-
-.AdvancedSearchPopup
-{
-    min-width:200px;
-    min-height:150px;
-    background:white;
+.custom_error {
+    background: url('images/default-error-page.gif') no-repeat center #0f6596;
+    height: 100%; width: 100%; padding: 0px; margin-right: 0px;
 }
-::-webkit-input-placeholder { color: #808080; }         
-:focus::-webkit-input-placeholder { color: #d0d0d0;  transition: all 1s ease-in-out; }
-:-moz-placeholder { /* Mozilla Firefox 4 to 18 */ color: #808080;   opacity:  1; }
-::-moz-placeholder { /* Mozilla Firefox 19+ */   color:    #808080;   opacity:  1;}
-:focus::-moz-placeholder { color: #d0d0d0;  transition: all 1s ease-in-out; }
-:-ms-input-placeholder { /* Internet Explorer 10+ */ color: #808080; }

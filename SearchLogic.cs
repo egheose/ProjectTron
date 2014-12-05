@@ -18,7 +18,8 @@ namespace DownloadApp
             try
             {
                 MyGlobals.datatableGlobal.Clear();//Clears global datatable
-                query = @"select ID,SURNAME,FIRSTNAME, MIDDLENAME,PRIMARY_PHONE_NO,OCCUPATION,DATE_BIRTH from Resident_info where ID LIKE '%"+value +"%'";
+                query = @"select ID,SURNAME,FIRSTNAME, MIDDLENAME,PRIMARY_PHONE_NO,OCCUPATION,DATE_BIRTH,HOSTNAME,STATUS 
+                        from Resident_info where ID LIKE '%" + value + "%'";
                 //Run query against all database servers and save result in Global datatable
                 MyGlobals.datatableGlobal = QueryMultiplyDBServers();
                 conn.Close();
@@ -40,7 +41,8 @@ namespace DownloadApp
                 MyGlobals.datatableGlobal.Clear();//Clears global datatable
                 foreach (string value in BulkQuery)
                 {
-                    query = @"select ID,SURNAME,FIRSTNAME, MIDDLENAME,PRIMARY_PHONE_NO,OCCUPATION,DATE_BIRTH from Resident_info where ID LIKE '%" + value.Trim() + "%'";
+                    query = @"select ID,SURNAME,FIRSTNAME, MIDDLENAME,PRIMARY_PHONE_NO,OCCUPATION,DATE_BIRTH,HOSTNAME,STATUS
+                            from Resident_info where ID LIKE '%" + value.Trim() + "%'";
                     //Run query against all database servers and save result in Global datatable
                     System.Data.DataTable dr = QueryMultiplyDBServers();
                     MyGlobals.datatableGlobal.ImportRow(dr.Rows[0]);
@@ -100,9 +102,25 @@ namespace DownloadApp
             }
         }
 
-        public void AdvancedSearch()
+        public void AdvancedSearch(string[] value)
         {
-            MyGlobals.datatableGlobal.Clear();//Clears global datatable
+            try
+            {
+                MyGlobals.datatableGlobal.Clear();//Clears global datatable
+                query = @"SELECT ID,SURNAME,FIRSTNAME, MIDDLENAME,PRIMARY_PHONE_NO,OCCUPATION,DATE_BIRTH,HOSTNAME,STATUS 
+                        FROM resident_info WHERE SURNAME LIKE '%" +value[0] +"%' AND MIDDLENAME LIKE '%" +value[1] +"%' AND FIRSTNAME LIKE '%" +value[2]
+                        +"%' AND PRIMARY_PHONE_NO LIKE '%" +value[3] +"%' AND EMPLOYER LIKE '%" +value[4] +"%' AND DATE_BIRTH LIKE '%" +value[5] +"%'";
+                //Run query against all database servers and save result in Global datatable
+                MyGlobals.datatableGlobal = QueryMultiplyDBServers();
+                conn.Close();
+                return;
+            }
+            catch (TimeoutException ex)
+            {
+                MyGlobals.err_Message = "RS - " + ex.Message.ToString();//MyGlobals Class stores global variables and is located in the Root.master.cs file
+                HttpContext.Current.Response.Redirect("error.aspx");
+                return;
+            }
         }
     }
 }

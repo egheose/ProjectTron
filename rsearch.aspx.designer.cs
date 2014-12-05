@@ -31,15 +31,6 @@ namespace DownloadApp {
         protected global::DevExpress.Web.ASPxEditors.ASPxTextBox tbSearch;
         
         /// <summary>
-        /// lnkbtnAdvSearch control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton lnkbtnAdvSearch;
-        
-        /// <summary>
         /// btnRsearch control.
         /// </summary>
         /// <remarks>
@@ -47,6 +38,15 @@ namespace DownloadApp {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::DevExpress.Web.ASPxEditors.ASPxButton btnRsearch;
+        
+        /// <summary>
+        /// lnkbtnAdvSearch control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lnkbtnAdvSearch;
         
         /// <summary>
         /// resultGrid control.
@@ -76,76 +76,67 @@ namespace DownloadApp {
         protected global::System.Web.UI.WebControls.Panel advSearchPanel;
         
         /// <summary>
-        /// ASPxTextBox1 control.
+        /// tbSurname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxTextBox ASPxTextBox1;
+        protected global::DevExpress.Web.ASPxEditors.ASPxTextBox tbSurname;
         
         /// <summary>
-        /// ASPxTextBox2 control.
+        /// tbFname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxTextBox ASPxTextBox2;
+        protected global::DevExpress.Web.ASPxEditors.ASPxTextBox tbFname;
         
         /// <summary>
-        /// ASPxTextBox3 control.
+        /// tbMname control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxTextBox ASPxTextBox3;
+        protected global::DevExpress.Web.ASPxEditors.ASPxTextBox tbMname;
         
         /// <summary>
-        /// ASPxTextBox4 control.
+        /// tbPhone control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxTextBox ASPxTextBox4;
+        protected global::DevExpress.Web.ASPxEditors.ASPxTextBox tbPhone;
         
         /// <summary>
-        /// ASPxTextBox5 control.
+        /// tbDOB control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxTextBox ASPxTextBox5;
+        protected global::DevExpress.Web.ASPxEditors.ASPxTextBox tbDOB;
         
         /// <summary>
-        /// ASPxTextBox6 control.
+        /// tbCompany control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxTextBox ASPxTextBox6;
+        protected global::DevExpress.Web.ASPxEditors.ASPxTextBox tbCompany;
         
         /// <summary>
-        /// ASPxTextBox7 control.
+        /// btnAdvSearch control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxTextBox ASPxTextBox7;
-        
-        /// <summary>
-        /// ASPxTextBox8 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxTextBox ASPxTextBox8;
+        protected global::DevExpress.Web.ASPxEditors.ASPxButton btnAdvSearch;
         
         /// <summary>
         /// LinkButton1 control.
@@ -157,12 +148,21 @@ namespace DownloadApp {
         protected global::System.Web.UI.WebControls.LinkButton LinkButton1;
         
         /// <summary>
-        /// btnAdvSearch control.
+        /// advResultGrid control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::DevExpress.Web.ASPxEditors.ASPxButton btnAdvSearch;
+        protected global::System.Web.UI.WebControls.GridView advResultGrid;
+        
+        /// <summary>
+        /// lblNF control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblNF;
     }
 }

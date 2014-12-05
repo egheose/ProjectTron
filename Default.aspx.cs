@@ -12,30 +12,30 @@ namespace DownloadApp
         Connect cn = new Connect();
         protected void Page_Load(object sender, EventArgs e) 
         {
-            try
-            {
-                cn.query = " select top 1 [id],[filename],[status],[Exception],[date] from Utilities.dbo.Log order by id desc";
+            //try
+            //{
+            //    cn.query = " select top 1 [id],[filename],[status],[Exception],[date] from Utilities.dbo.Log order by id desc";
 
-                cn.db = "log";
-                cn.read(); cn.run();
-                if (cn.datreader.HasRows)
-                {
-                    while (cn.datreader.Read())
-                    {
-                        lblStatus.Text = cn.datreader["status"].ToString().ToUpper();
-                        lblFilename.Text = cn.datreader["filename"].ToString() + ".zip";
-                        lblDate.Text = cn.datreader["date"].ToString();
+            //    cn.db = "log";
+            //    cn.read(); cn.run();
+            //    if (cn.datreader.HasRows)
+            //    {
+            //        while (cn.datreader.Read())
+            //        {
+            //            lblStatus.Text = cn.datreader["status"].ToString().ToUpper();
+            //            lblFilename.Text = cn.datreader["filename"].ToString() + ".zip";
+            //            lblDate.Text = cn.datreader["date"].ToString();
 
-                    }
-                }
+            //        }
+            //    }
 
-                cn.conn.Close();
-            }
-            catch (Exception ex)
-            {
-                MyGlobals.err_Message = ex.Message.ToString();
-                Message((ex.Message.ToString().Substring(0,5)) +"...");
-            }
+            //    cn.conn.Close();
+            //}
+            //catch (Exception ex)
+            //{
+            //    MyGlobals.err_Message = ex.Message.ToString();
+            //    Message((ex.Message.ToString().Substring(0,5)) +"...");
+            //}
         }
 
         public void Message(String msg)

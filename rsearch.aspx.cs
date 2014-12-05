@@ -112,5 +112,60 @@ namespace DownloadApp
             SearchPanel.Visible = true;
             advSearchPanel.Visible = false;
         }
+
+        protected void btnAdvSearch_Click(object sender, EventArgs e)
+        {
+            lblNF.Visible = false;
+            MyGlobals.datatableGlobal.Clear();//Clears global datatable
+
+            if (!isAllSearchFieldEmpty())
+            {
+                resultGrid.DataSource = MyGlobals.datatableGlobal;
+                string[] input = { tbSurname.Text, tbMname.Text, tbFname.Text, tbPhone.Text, tbCompany.Text, tbDOB.Text };
+                sl.AdvancedSearch(input);
+                BindData_Adv();
+                    if (advResultGrid.Rows.Count < 1)
+                    {
+                        lblNF.Text = "<br/><br/>  No Record(s) Found.";
+                        lblNF.Visible = true; lblNF.ForeColor = System.Drawing.Color.Red;
+                    }
+            }
+        }
+
+        private void BindData_Adv()
+        {            
+                try
+            {
+
+                advResultGrid.DataSource = MyGlobals.datatableGlobal;
+                advResultGrid.DataBind();
+            }
+            catch (OutOfMemoryException)
+            {
+                lblNF.Text = "  Maximum Result Set Exceeded - Your search returned over 100,000 records and has maxed out memory, Please narrow your search and try again";
+                lblNF.Visible = true; lblNF.ForeColor = System.Drawing.Color.Red;
+            }
+        }
+
+        private bool isAllSearchFieldEmpty()
+        {
+            if (tbSurname.Text == "" && tbFname.Text == "" && tbMname.Text == "" && tbCompany.Text == ""
+                && tbDOB.Text == "" && tbPhone.Text == "")
+            {
+                lblNF.Text = @"(All Search Fields Cannot Be Empty) - At Least one is required";
+                lblNF.Visible = true; lblNF.ForeColor = System.Drawing.Color.Red;
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        protected void advResultGrid_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            advResultGrid.PageIndex = e.NewPageIndex;
+            BindData_Adv();
+        }
     }
 }

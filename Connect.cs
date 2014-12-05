@@ -93,7 +93,9 @@ namespace DownloadApp
                             }
                         }
                     }
-                }//End For loop
+                    if (result.Rows.Count > 0)
+                        break;
+                }//End Foreach loop
             }
             catch (SqlException ex)
             {

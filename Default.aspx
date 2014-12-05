@@ -9,7 +9,7 @@
         <h1>DASHBOARD</h1>
         <div class="report">
             <div class="order-box-text">
-                <span>LAST STATUS</span>
+                <span><%--LAST STATUS--%></span>
                 <H3>
                     <asp:Label ID="lblStatus" runat="server" Text=""></asp:Label>
                 </H3>
@@ -17,7 +17,7 @@
         </div>
         <div class="report1">
             <div class="order-box-text">
-                <span>LAST DOWNLOAD DATE</span><H3>
+                <span><%--LAST DOWNLOAD DATE--%></span><H3>
                 <H3>
                     <asp:Label ID="lblDate" runat="server" Text=""></asp:Label>
                 </H3>
@@ -25,7 +25,7 @@
         </div>
         <div class="report2">
             <div class="order-box-text">
-                <span>FILENAME</span>
+                <span><%--FILENAME--%></span>
                 <H3>
                     <asp:Label ID="lblFilename" runat="server" Text=""></asp:Label>
                 </H3>
